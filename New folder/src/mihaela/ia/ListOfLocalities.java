@@ -1,6 +1,7 @@
 package mihaela.ia;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -12,11 +13,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class ListOfLocalities  {
-	List <Locality> localities;
-	 Locality currentLocality;
-	  
-	 
-
+	List <Locality> localities=new ArrayList<Locality>();
 
     public List<Locality> getLocalities()
     {
@@ -25,11 +22,11 @@ public class ListOfLocalities  {
 
 
 
-  /*  public boolean AddLocality(Locality l) 
+   public void AddLocality(Locality l) 
     {
-	return localities.add(l);
+	 localities.add(l);
      }
-*/
+
   
    
    public void ReadXml() {
@@ -37,51 +34,39 @@ public class ListOfLocalities  {
 	   try   
 	   {  
 	   //creating a constructor of file class and parsing an XML file  
-	   File file = new File("D:\\Eclipse workspace\\IA\\New folder\\src\\mihaela\\ia\\ListOfLocalities.xml");
+	   File file = new File("D:\\Eclipse workspace\\IA\\IA2\\New folder\\src\\mihaela\\ia\\ListOfLocalities.xml");
 	 
 	   //an instance of factory that gives a document builder  
 	   DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
 	   //an instance of builder to parse the specified xml file  
 	   DocumentBuilder db = dbf.newDocumentBuilder();  
 	   Document doc = db.parse(file);  
-	   doc.getDocumentElement().normalize();  
-	   System.out.println("Root element: " + doc.getDocumentElement().getNodeName());  
-	   NodeList nodeList = doc.getElementsByTagName("Locality");  
-	    
+	   doc.getDocumentElement().normalize();
+	   NodeList nodeList = doc.getElementsByTagName("Locality");
+	  
 	   // nodeList is not iterable, so we are using for loop  
 	   for (int itr = 0; itr < nodeList.getLength(); itr++)   
 	   {  
 	   Node node = nodeList.item(itr);  
 
-	   System.out.println("\nNode Name :" + node.getNodeName());  
 	         if (node.getNodeType() == Node.ELEMENT_NODE)   
 	          {  
-	           Element eElement = (Element) node;  
-	          // localities.add(itr, currentLocality);-de studiat 
-	       //localities.get(itr).setname()=eElement.getElementsByTagName("name").item(0).getTextContent();
-	        //  localities.get(itr).latitude.grades= Integer.parseInt( eElement.getElementsByTagName("grades").item(0).getTextContent());
-	  
-	           System.out.println("Locality name: "+ eElement.getElementsByTagName("name").item(0).getTextContent());  
-	           System.out.println("Locality Latitude grades: "+ eElement.getElementsByTagName("grades").item(0).getTextContent());  
-	           System.out.println("Locality Latitude minutes: "+ eElement.getElementsByTagName("minutes").item(0).getTextContent());  
-	           System.out.println("Locality Latitude Vest: "+ eElement.getElementsByTagName("isVest").item(0).getTextContent());  
-	           System.out.println("Locality Longitude grades: "+ eElement.getElementsByTagName("grades").item(0).getTextContent());  
-	           System.out.println("Locality Longitude minutes: "+ eElement.getElementsByTagName("minutes").item(0).getTextContent());  
-	           System.out.println("Locality Latitude Vest: "+ eElement.getElementsByTagName("isNord").item(0).getTextContent()); 
-		       
-	   
+	        	 Locality currentLocality=new Locality();
+	        	Element eElement = (Element) node;  
+	        currentLocality.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
+	        currentLocality.setLongitude(Integer.parseInt(eElement.getElementsByTagName("lgrades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("lminutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("lisVest").item(0).getTextContent()));
+	        currentLocality.setLatitude(Integer.parseInt(eElement.getElementsByTagName("grades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("minutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("isNord").item(0).getTextContent()));
+	        localities.add(currentLocality);
 		     } 
-	        
-	 
-	   }  
-	   
+	         
+	   }
 	   }catch (Exception e)   
 	   {  
 	   e.printStackTrace();  
 	   }  
 	   
    }
-   
+
     /*
  * Just Read
  * void ReadXML() {
@@ -232,10 +217,10 @@ FileInputStream inputStream=new FileInputStream(new File("localities.txt"));
 	
 	
 	
-}
+}*/
 public void ShowTheLocalities() {
 	for(int i=0;i<localities.size();i++) {
 		System.out.println(localities.get(i).toString());
 	}
-}*/
+}
 }

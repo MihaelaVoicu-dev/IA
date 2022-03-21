@@ -8,10 +8,10 @@ public class LocalityManagement {
 	// l.ReadData();
 	 //    l.ShowTheLocalities();
 		
-	ListOfLocalities l=new ListOfLocalities();
-	
-l.ReadXml();
-	//	l.ShowTheLocalities();
+	  ListOfLocalities l=new ListOfLocalities();
+	  l.ReadXml();
+
+		l.ShowTheLocalities();
 	}
 	
 	}

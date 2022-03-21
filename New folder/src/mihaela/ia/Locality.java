@@ -14,18 +14,18 @@ public class Locality {
 	public Longitude getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(Longitude longitude) {
-		this.longitude.grades = longitude.grades;
-		this.longitude.minutes = longitude.minutes;
-		this.longitude.isVest = longitude.isVest;
+	public void setLongitude(int g,int min,boolean v) {
+		this.longitude.grades = g;
+		this.longitude.minutes = min;
+		this.longitude.isVest = v;
 	}
 	public Latitude getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(Latitude latitude) {
-		this.latitude.grades = latitude.grades;
-		this.latitude.minutes = latitude.minutes;
-		this.latitude.isNord = latitude.isNord;
+	public void setLatitude(int g,int min,boolean v) {
+		this.latitude.grades=g;
+		this.latitude.minutes=min;
+		this.latitude.isNord=v;
 	}
 	
      static  String separator="  ";
