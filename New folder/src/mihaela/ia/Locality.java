@@ -15,7 +15,7 @@ public class Locality {
 		return longitude;
 	}
 	public void setLongitude(int g,int min,boolean v) {
-		this.longitude.grades = g;
+		this.longitude.degrees = g;
 		this.longitude.minutes = min;
 		this.longitude.isVest = v;
 	}
@@ -23,7 +23,7 @@ public class Locality {
 		return latitude;
 	}
 	public void setLatitude(int g,int min,boolean v) {
-		this.latitude.grades=g;
+		this.latitude.degrees=g;
 		this.latitude.minutes=min;
 		this.latitude.isNord=v;
 	}
@@ -43,30 +43,39 @@ public class Locality {
 	public Locality(String n, int g,int m,boolean v,int g1,int m1,boolean v1)
 	{
 		this.name=n;
-		this.longitude.grades=g;
+		this.longitude.degrees=g;
 		this.longitude.minutes=m;
 		this.longitude.isVest=v;
-		this.latitude.grades=g1;
+		this.latitude.degrees=g1;
 		this.latitude.minutes=m1;
 		this.latitude.isNord=v1;
 	};
 	public String toString() {
 	if((longitude.isVest)&&(latitude.isNord))
 	{
-		return name+separator+longitude.grades+separator+longitude.minutes+ "West"+separator+latitude.grades+separator+latitude.minutes+"North";
+		return name+separator+longitude.degrees+separator+longitude.minutes+ "West"+separator+latitude.degrees+separator+latitude.minutes+"North";
 	}
 	else if((longitude.isVest==false)&&(latitude.isNord==false)) {
-		return name+separator+longitude.grades+separator+longitude.minutes+ "East"+separator+latitude.grades+separator+latitude.minutes+"South";
+		return name+separator+longitude.degrees+separator+longitude.minutes+ "East"+separator+latitude.degrees+separator+latitude.minutes+"South";
 	}
 	else if((longitude.isVest==false)&&(latitude.isNord==true)) {
-		return name+separator+longitude.grades+separator+longitude.minutes+ "East"+separator+latitude.grades+separator+latitude.minutes+"North";
+		return name+separator+longitude.degrees+separator+longitude.minutes+ "East"+separator+latitude.degrees+separator+latitude.minutes+"North";
 	}
 	else 
-		return name+separator+longitude.grades+separator+longitude.minutes+ "West"+separator+latitude.grades+separator+latitude.minutes+"South";
+		return name+separator+longitude.degrees+separator+longitude.minutes+ "West"+separator+latitude.degrees+separator+latitude.minutes+"South";
 	
 
 	}
-
+	public float LatitudeToDegrees() {
+		float degreesL;
+		degreesL= (float) (this.latitude.minutes/60+this.latitude.degrees);
+		return degreesL;
+	}
+	public float LongitudeToDegrees() {
+		float degreesl;
+		degreesl= (float) (this.longitude.minutes/60+this.longitude.degrees);
+		return degreesl;
+	}
 
 
 	}

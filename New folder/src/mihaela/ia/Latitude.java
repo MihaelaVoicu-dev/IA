@@ -4,25 +4,25 @@ package mihaela.ia;
 public class Latitude   {
 
 	
-	int grades;
-	int minutes;
+	float degrees;
+    float minutes;
     boolean isNord;
  public Latitude(int g,int m, boolean v) {
-	 this.grades=g;
+	 this.degrees=g;
 	 this.minutes=m;
 	 this.isNord=v;
 }
 public Latitude() {
-	grades=0;
+	degrees=0;
 	minutes=0;
 	isNord=true;
 }
 public String toString() 
 { if(this.isNord==true)
-{ return "grade: " + this.grades+ " minutes: "+this.minutes + " North"; 
+{ return "grade: " + this.degrees+ " minutes: "+this.minutes + " North"; 
 	}
 else {
-	 return "grade: " + this.grades+ " minutes: "+this.minutes + " South"; 
+	 return "grade: " + this.degrees+ " minutes: "+this.minutes + " South"; 
 	}
 }
 }
