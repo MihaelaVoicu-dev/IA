@@ -31,7 +31,7 @@ public class ListOfLocalities  {
     {
     	return listOfLocalities;
     }
-    ListOfLocalities() 
+    private ListOfLocalities() 
     {
     	this.localities=new ArrayList<Locality>();
     }
