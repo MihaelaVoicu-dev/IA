@@ -1,12 +1,23 @@
 package mihaela.ia;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.xml.transform.TransformerException;
 
 public class LocalityManagement {
 
 	public static void main(String[] args) throws TransformerException  {
 	// TODO Auto-generated method stub
-		
+		Logger logger  = Logger.getLogger(LocalityManagement.class.getName());
+		logger.log(Level.SEVERE, "logging:",
+                new RuntimeException("Error"));
+     logger.log(Level.WARNING, "logging: ",
+                new Exception("Exception"));
+    // log messages using
+    // log(Level level, String msg, Object[] param1)
+    logger.log(Level.SEVERE, "logging: {0} ");;
+    
 	  ListOfLocalities l=ListOfLocalities.getInstance();
 	  l.ReadXml();
 	  l.ShowTheLocalities();
@@ -27,6 +38,7 @@ public class LocalityManagement {
    StartUp st1= new StartUp();
    System.out.println(st1.DistanceOfTwoLocalities( l1,l2));//acordat cu google e 685 vs rezultat 688//greseli aproximari
    System.out.println(st1.DistanceOfTwoLocalities( l.localities.get(1),l.localities.get(2)));
+   l.ShowTheLocalities();
  
 	}
 	

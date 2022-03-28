@@ -2,7 +2,6 @@ package mihaela.ia;
 
 import java.io.File;
 import java.io.OutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +30,8 @@ public class ListOfLocalities  {
     {
     	return listOfLocalities;
     }
+   
+    
     private ListOfLocalities() 
     {
     	this.localities=new ArrayList<Locality>();
@@ -46,69 +47,7 @@ public class ListOfLocalities  {
    public void AddLocality(Locality l) 
     {
 	 localities.add(l);
-     }
-   
- /*  private static void parseLocalitiesObject(JSONObject locality) 
-   {
-       JSONObject Locality= (JSONObject) locality.get("Locality");
-      Locality currentLocality= new Locality();
-        currentLocality.setName((String)Locality.get("Nume"));
-        currentLocality.setLatitude((Integer)Locality.get("lgrades"), (Integer)Locality.get("lminutes"), (Boolean)Locality.get("lisVest"));
-        currentLocality.setLongitude((Integer)Locality.get("grades"), (Integer)Locality.get("minutes"), (Boolean)Locality.get("isNord"));
-       
-   }
-
-   
- 
-/*public void ReadXML() {
-	JSONParser jsonParser = new JSONParser();
-	
-	
-	 try (FileReader reader = new FileReader("D:\\Eclipse workspace\\IA\\IA2\\New folder\\src\\mihaela\\ia\\ListOfLocalities.json"))
-     {
-         //Read JSON file
-         Object obj = jsonParser.parse(reader);
-         JSONArray localitieslist = (JSONArray) obj;
-        
-         
-         localitieslist.forEach( locality -> parseLocalitiesObject( (JSONObject) locality ) );
-
-     } catch (FileNotFoundException e) {
-         e.printStackTrace();
-     } catch (IOException e) {
-         e.printStackTrace();
-     } catch (org.json.simple.parser.ParseException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
- }
-*/
-
-	/*JSONParser parser= new JSONParser();
-	
-	  
-	   try {
-		  Object obj=  parser.parse(new FileReader("D:\\Eclipse workspace\\IA\\IA2\\New folder\\src\\mihaela\\ia\\ListOfLocalities2.json"));
-	
-         JSONObject object= (JSONObject) obj;
-		 
-		JSONArray localitiesArr= (JSONArray) object.get("Locality");
-		
-		  for(int i=0;i<localitiesArr.size();i++) 
-		{
-       	 Locality currentLocality=new Locality();
-       	 currentLocality.setName((String) localitiesArr.get(0));
-		// currentLocality.setLongitude(object.getInt("lgrades"),object.getInt("lminutes"),object.optBoolean("lisVest"));
-		// currentLocality.setLatitude(object.getInt("grades"),object.getInt("minutes"),object.getBoolean("isNord"));
-		// localities.add(currentLocality);
-       	 }
-		
-	   }catch(Exception e) {
-		   e.printStackTrace();
-	   }
-	   }*/
-   
-   
+     }   
   public void ReadXml() {
 	  
 	   try   
@@ -199,7 +138,6 @@ public class ListOfLocalities  {
 			e.printStackTrace();
 		}
 
-        // root elements
       
     }
   
