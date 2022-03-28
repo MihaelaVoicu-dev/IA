@@ -15,7 +15,7 @@ public class LocalityManagement {
      logger.log(Level.WARNING, "logging: ",
                 new Exception("Exception"));
     // log messages using
-    // log(Level level, String msg, Object[] param1)
+   
     logger.log(Level.SEVERE, "logging: {0} ");;
     
 	  ListOfLocalities l=ListOfLocalities.getInstance();
