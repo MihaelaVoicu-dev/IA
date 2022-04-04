@@ -1,9 +1,1 @@
-La tema 4 am folosit Singleton pe clasa ListOfLocalities.
-Tinand cont ca pentru a proiecta racheta trebuie sa aleg dintr-o lista de localitati, am considerat ca nu e nevoie de mai multe obiecte ale acestei clase.
-Astfel ca am facut constructorul clasei private, la fel si argumentul lista.
-Pentru a crea un obiect ListOfLocalities apelez getInstnce, care returneaza lista. 
-Pe exemplul din clasa main(LocalityManagement) arat acest lucru astfel: l= este incarcata la inceput cu 3 obiecte de tip Locality prin functia ReadXML.
-In momentul in care voi crea obiectul ListOfLocalities l2 (apeland getInstance) listei l incarcata initial cu 3 obiecte i se vor adauga inca  3 obiecte(tot apeland ReadXML pentru lista l2),deci lista mea l2 are ce are l1 +ce ii mai adaug ei(va avea 6 obiecte)
-De aici rezulta ca modificarile se fac asupra unei singure liste(utilitatea SingleTon este demonstrata).
-Am implementat si un logger pentru a observa cum functioneaza. Este ceva temporar, nu consider ca este necesar pentru proiectul meu in acest stadiu.Se afla in clasa main LocalityManagement si imi afiseaza atat "warning-uri" pe diferite levele cat si erori.
-Loggerele sunt importante in java pentru a inregistra anumite circumstante "neobisnuite"si pentru a putea urmari mai usor cum se desfasoara aplicatia.
+
