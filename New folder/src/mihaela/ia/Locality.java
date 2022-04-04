@@ -2,9 +2,35 @@ package mihaela.ia;
 
 public class Locality {
 	
-	String name;
-	Longitude longitude;
-	Latitude latitude;
+	static  String separator="  ";
+	
+	private String name;
+	private Longitude longitude;
+	private Latitude latitude;
+	
+	public Locality() {
+		name= new String();
+		longitude= new Longitude();
+		latitude=new Latitude();
+
+	}
+	
+	public Locality(String n, Longitude longit, Latitude lat) {
+		this.name=n;
+		this.latitude=lat;
+		this.longitude=longit;
+	};
+	
+	public Locality(String n, int g,int m,boolean v,int g1,int m1,boolean v1) {
+		this.name=n;
+		this.longitude.degrees=g;
+		this.longitude.minutes=m;
+		this.longitude.isVest=v;
+		this.latitude.degrees=g1;
+		this.latitude.minutes=m1;
+		this.latitude.isNord=v1;
+	};
+	
 	public String getName() {
 		return name;
 	}
@@ -28,28 +54,6 @@ public class Locality {
 		this.latitude.isNord=v;
 	}
 	
-     static  String separator="  ";
-	public Locality() {
-		name= new String();
-		longitude= new Longitude();
-		latitude=new Latitude();
-
-	}
-	public Locality(String n, Longitude longit, Latitude lat) {
-		this.name=n;
-		this.latitude=lat;
-		this.longitude=longit;
-	};
-	public Locality(String n, int g,int m,boolean v,int g1,int m1,boolean v1)
-	{
-		this.name=n;
-		this.longitude.degrees=g;
-		this.longitude.minutes=m;
-		this.longitude.isVest=v;
-		this.latitude.degrees=g1;
-		this.latitude.minutes=m1;
-		this.latitude.isNord=v1;
-	};
 	public String toString() {
 	if((longitude.isVest)&&(latitude.isNord))
 	{
@@ -64,7 +68,6 @@ public class Locality {
 	else 
 		return name+separator+longitude.degrees+separator+longitude.minutes+ "West"+separator+latitude.degrees+separator+latitude.minutes+"South";
 	
-
 	}
 	public float LatitudeToDegrees() {
 		float degreesL;

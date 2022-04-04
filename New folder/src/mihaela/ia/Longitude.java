@@ -6,6 +6,7 @@ public class Longitude  {
 	float degrees;
 	float minutes;
     boolean isVest;
+    private LongitudeOrientation orientation;
   
  public Longitude() {
 	degrees=0;

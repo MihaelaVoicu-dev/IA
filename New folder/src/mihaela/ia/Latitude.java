@@ -6,7 +6,12 @@ public class Latitude   {
 	
 	float degrees;
     float minutes;
+
+    @Deprecated
     boolean isNord;
+    
+    private LatitudeOrientation orientation;
+    
  public Latitude(int g,int m, boolean v) {
 	 this.degrees=g;
 	 this.minutes=m;
@@ -17,6 +22,8 @@ public Latitude() {
 	minutes=0;
 	isNord=true;
 }
+
+@Override
 public String toString() 
 { if(this.isNord==true)
 { return "grade: " + this.degrees+ " minutes: "+this.minutes + " North"; 

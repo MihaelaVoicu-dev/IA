@@ -3,7 +3,10 @@ package mihaela.ia;
 import java.io.File;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -23,18 +26,26 @@ import org.w3c.dom.NodeList;
 
 
 
-public class ListOfLocalities  {
-	static List <Locality> localities;
-	private static ListOfLocalities listOfLocalities=new ListOfLocalities();
-    public static ListOfLocalities getInstance() 
-    {
-    	return listOfLocalities;
+public class Localities implements Subject {
+	
+	private static final Logger logger = Logger.getLogger(Localities.class.getName());
+	
+	private static Localities instance;
+	
+	private List <Locality> localities;
+	ArrayList<Observer> observerList;
+	
+    public static Localities getInstance() {
+    	if (instance == null) {
+    		instance = new Localities();
+    	}
+    	return instance ;
     }
    
     
-    private ListOfLocalities() 
+    private Localities() 
     {
-    	this.localities=new ArrayList<Locality>();
+    	this.localities = new ArrayList<Locality>();
     }
 
 	public List<Locality> getLocalities()
@@ -63,6 +74,7 @@ public class ListOfLocalities  {
 	   doc.getDocumentElement().normalize();
 	   NodeList nodeList = doc.getElementsByTagName("Locality");
 	  
+	   logger.log(Level.INFO, "Iterate the localities from the DOM Object :");
 	   // nodeList is not iterable, so we are using for loop  
 	   for (int itr = 0; itr < nodeList.getLength(); itr++)   
 	   {  
@@ -72,6 +84,7 @@ public class ListOfLocalities  {
 	          {  
 	        	 Locality currentLocality=new Locality();
 	        	Element eElement = (Element) node;  
+	        	//eElement=null;
 	        currentLocality.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
 	        currentLocality.setLongitude(Integer.parseInt(eElement.getElementsByTagName("lgrades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("lminutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("lisVest").item(0).getTextContent()));
 	        currentLocality.setLatitude(Integer.parseInt(eElement.getElementsByTagName("grades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("minutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("isNord").item(0).getTextContent()));
@@ -81,7 +94,8 @@ public class ListOfLocalities  {
 	   }
 	   }catch (Exception e)   
 	   {  
-	   e.printStackTrace();  
+	  // e.printStackTrace();  
+		   logger.log(Level.SEVERE, "Failed to read the data from XML!", e);
 	   }  
 	   
    }
@@ -140,12 +154,29 @@ public class ListOfLocalities  {
 
       
     }
-  
-
 
 public void ShowTheLocalities() {
 	for(int i=0;i<localities.size();i++) {
-		System.out.println(localities.get(i).toString());
+		System.out.println(localities.get(i).toString());}
 	}
+
+
+@Override
+public void register() {
+	for(int i=0;i< localities.size();i++)
+	{
+	}
+ }
+	
+@Override
+public void unregister(Observer o) {
+	 observerList.remove(observerList.indexOf(o));
 }
-}
+@Override
+public void notifyAllObservers() {
+	 for (Iterator<Observer> it =  observerList.iterator(); it.hasNext();)
+     {
+         Observer o = it.next();
+         o.update();
+     }
+}}
