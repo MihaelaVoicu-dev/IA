@@ -1,7 +1,8 @@
 package mihaela.ia;
 
 public class Locality implements Observer {
-	
+	public int state;
+
 	static  String separator="  ";
 	
 	private String name;
@@ -79,14 +80,21 @@ public class Locality implements Observer {
 		degreesl= (float) (this.longitude.minutes/60+this.longitude.degrees);
 		return degreesl;
 	}
-	public void update(Subject subject) 
+	@Override
+	public void update() 
 	{
-		if(subject.state==1) {
+	   
+		if(this.state==1) {
 		System.out.println("Rocket has been launched!!!");
 		}
 		else {
+		
 	     System.out.println("The rocket hasn t been launched!");}
 	}
+}
 
 
-	}
+	
+
+
+	

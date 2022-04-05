@@ -1,5 +1,5 @@
 package mihaela.ia;
 
 interface  Observer {
-public void update(Subject subject);
+public void update();
 }

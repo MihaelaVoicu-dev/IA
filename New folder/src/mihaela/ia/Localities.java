@@ -29,12 +29,11 @@ import org.w3c.dom.NodeList;
 
 public class Localities implements Subject {
 	
-	public int state;
 	private static final Logger logger = Logger.getLogger(Localities.class.getName());
 	
 	private static Localities instance;
 	
-	private List <Locality> localities;
+	private List <Locality> observerList;
 	
     public static Localities getInstance() {
     	if (instance == null) {
@@ -46,19 +45,19 @@ public class Localities implements Subject {
     
     private Localities() 
     {
-    	this.localities = new ArrayList<Locality>();
+    	this.observerList = new ArrayList<Locality>();
     }
 
 	public List<Locality> getLocalities()
     {
-	return localities;
+	return observerList;
     }
 
 
 
    public void AddLocality(Locality l) 
     {
-	 localities.add(l);
+	 observerList.add(l);
      }   
   public void ReadXml() {
 	  
@@ -89,7 +88,7 @@ public class Localities implements Subject {
 	        currentLocality.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
 	        currentLocality.setLongitude(Integer.parseInt(eElement.getElementsByTagName("lgrades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("lminutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("lisVest").item(0).getTextContent()));
 	        currentLocality.setLatitude(Integer.parseInt(eElement.getElementsByTagName("grades").item(0).getTextContent()),Integer.parseInt(eElement.getElementsByTagName("minutes").item(0).getTextContent()),Boolean.parseBoolean(eElement.getElementsByTagName("isNord").item(0).getTextContent()));
-	        localities.add(currentLocality);
+	        observerList.add(currentLocality);
 		     } 
 	         
 	   }
@@ -157,32 +156,35 @@ public class Localities implements Subject {
     }
 
 public void ShowTheLocalities() {
-	for(int i=0;i<localities.size();i++) {
-		System.out.println(localities.get(i).toString());}
+	for(int i=0;i<observerList.size();i++) {
+		System.out.println(observerList.get(i).toString());}
 	}
 
 
 @Override
 public void register(Observer o) {
-	localities.add(o);
+	observerList.add((Locality) o);
  }
 	
 @Override
 public void unregister(Observer o) {
-	 localities.remove(observerList.indexOf(o));
+	 observerList.remove(observerList.indexOf(o));
 }
 @Override
 public void notifyAllObservers() {
-	 for (Iterator<Locality> it =  localities.iterator(); it.hasNext();)
+	 for (Iterator<Locality> it =  observerList.iterator(); it.hasNext();)
      {
          Observer o = it.next();
-         o.update();
+        o.update();
      }
 }
 public void SomeBusinessLogic()
-{   Random rand = new Random();
-    this.state = rand.nextInt(2);
-
-    System.out.println("Subject: My state has just changed to: " + this.State);
-    this.notifyAllObserver();
+{  
+	for(Locality l: observerList)
+{	Random rand = new Random();   
+l.state = rand.nextInt(2);
+ 
+    System.out.println("Subject: My state has just changed to: " + l.state);
+   }
+	this.notifyAllObservers();
 }}

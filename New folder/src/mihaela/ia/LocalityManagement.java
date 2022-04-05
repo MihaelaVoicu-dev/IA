@@ -1,8 +1,5 @@
 package mihaela.ia;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.xml.transform.TransformerException;
 
 public class LocalityManagement {
@@ -23,7 +20,7 @@ public class LocalityManagement {
         l.register(l1);
         l.register(l2);
         l.register(l3);
-        l.SomeBussinesLogic();
+        l.SomeBusinessLogic();
 	/*	Session st1 = new Session();
 		System.out.println(st1.DistanceOfTwoLocalities(l1, l2));// acordat cu google e 685 vs rezultat 688//greseli
 																// aproximari

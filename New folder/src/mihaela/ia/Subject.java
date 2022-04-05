@@ -1,7 +1,7 @@
 package mihaela.ia;
 
 interface Subject {
-	public void register() ;
+	public void register(Observer o) ;
 	public void unregister(Observer o) ;
 	public void notifyAllObservers() ;
 

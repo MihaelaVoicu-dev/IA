@@ -1,8 +1,6 @@
 package mihaela.ia;
 
-public class Session implements Observer{
-
-	private float angle;
+public class Session {
 
 	public double DistanceOfTwoLocalities(Locality A, Locality B) {
 		final float R = 6371;// Earth`s radius in km
@@ -37,10 +35,6 @@ public class Session implements Observer{
 
 	public void OptimAngle() {
 	}
-	@Override
-	public void update() {
-		System.out.println("Localities are announced that the rocket is launched!");
-		
-	}
+
 
 }
