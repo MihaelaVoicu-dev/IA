@@ -5,6 +5,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,12 +29,12 @@ import org.w3c.dom.NodeList;
 
 public class Localities implements Subject {
 	
+	public int state;
 	private static final Logger logger = Logger.getLogger(Localities.class.getName());
 	
 	private static Localities instance;
 	
 	private List <Locality> localities;
-	ArrayList<Observer> observerList;
 	
     public static Localities getInstance() {
     	if (instance == null) {
@@ -162,21 +163,26 @@ public void ShowTheLocalities() {
 
 
 @Override
-public void register() {
-	for(int i=0;i< localities.size();i++)
-	{
-	}
+public void register(Observer o) {
+	localities.add(o);
  }
 	
 @Override
 public void unregister(Observer o) {
-	 observerList.remove(observerList.indexOf(o));
+	 localities.remove(observerList.indexOf(o));
 }
 @Override
 public void notifyAllObservers() {
-	 for (Iterator<Observer> it =  observerList.iterator(); it.hasNext();)
+	 for (Iterator<Locality> it =  localities.iterator(); it.hasNext();)
      {
          Observer o = it.next();
          o.update();
      }
+}
+public void SomeBusinessLogic()
+{   Random rand = new Random();
+    this.state = rand.nextInt(2);
+
+    System.out.println("Subject: My state has just changed to: " + this.State);
+    this.notifyAllObserver();
 }}

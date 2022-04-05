@@ -1,6 +1,6 @@
 package mihaela.ia;
 
-public class Locality {
+public class Locality implements Observer {
 	
 	static  String separator="  ";
 	
@@ -78,6 +78,14 @@ public class Locality {
 		float degreesl;
 		degreesl= (float) (this.longitude.minutes/60+this.longitude.degrees);
 		return degreesl;
+	}
+	public void update(Subject subject) 
+	{
+		if(subject.state==1) {
+		System.out.println("Rocket has been launched!!!");
+		}
+		else {
+	     System.out.println("The rocket hasn t been launched!");}
 	}
 
 
