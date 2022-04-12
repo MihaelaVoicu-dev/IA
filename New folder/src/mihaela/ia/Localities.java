@@ -2,12 +2,14 @@ package mihaela.ia;
 
 import java.io.File;
 import java.io.OutputStream;
+import java.nio.file.spi.FileSystemProvider;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -148,7 +150,6 @@ public class Localities implements Subject {
 	       writeXml(doc, System.out);
 	       
 		} catch (ParserConfigurationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -170,20 +171,27 @@ public void register(Observer o) {
 public void unregister(Observer o) {
 	 observerList.remove(observerList.indexOf(o));
 }
+
 @Override
 public void notifyAllObservers() {
-	 for (Iterator<Locality> it =  observerList.iterator(); it.hasNext();)
+	for (Iterator<Locality> it =  observerList.iterator(); it.hasNext();)
      {
          Observer o = it.next();
-        o.update();
+         o.update();
      }
 }
+
 public void SomeBusinessLogic()
 {  
 	for(Locality l: observerList)
-{	Random rand = new Random();   
-l.state = rand.nextInt(2);
- 
+  {	
+	Random rand = new Random();
+	double randomValue = rand.nextDouble();
+	int value =(int) (randomValue*1000);
+	System.out.println("double"+value + " rand int "+ randomValue);
+	//nr par
+	boolean isEvenNumber=(value%2==0);
+    l.state = rand.nextInt(2);
     System.out.println("Subject: My state has just changed to: " + l.state);
    }
 	this.notifyAllObservers();

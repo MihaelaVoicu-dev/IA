@@ -1,5 +1,6 @@
 package mihaela.ia;
 
-interface  Observer {
+public interface  Observer {
+	
 public void update();
 }

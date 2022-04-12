@@ -6,6 +6,8 @@ public class LocalityManagement {
 
 	public static void main(String[] args) throws TransformerException  {
 		 
+		int count = Runtime.getRuntime().availableProcessors();
+		System.out.println(count);
 		Localities l = Localities.getInstance();
 		//l.ReadXml();
 		Latitude lat1 = new Latitude(46, 47, true);
@@ -21,19 +23,27 @@ public class LocalityManagement {
         l.register(l2);
         l.register(l3);
         l.SomeBusinessLogic();
+        l.notifyAllObservers();
+      //  l.SomeBusinessLogic();
 	/*	Session st1 = new Session();
 		System.out.println(st1.DistanceOfTwoLocalities(l1, l2));// acordat cu google e 685 vs rezultat 688//greseli
 																// aproximari
 		System.out.println(st1.DistanceOfTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));
 		l.ShowTheLocalities();
-*/
-		
-		RocketFactory rocketFactory= new RocketFactory();
-		Rocket rocket1 = rocketFactory.getRocket("Nuclear");
-		rocket1.explosion();
-		Rocket rocket2=rocketFactory.getRocket("Hypersonic");
-		rocket2.explosion();
-		
+    */  
+        ReactorFactory reactorFactory= new ReactorFactory();
+		Reactor thisReactor= reactorFactory.getReactor("Nuclear");
+        RocketBody rb = new RocketBody(2, 5);
+
+        Rocket rocket= new Builder()
+        		  .setName("racheta1")
+        		  .setReactor( thisReactor)
+        		  .setRocketBody(rb)
+        		  .build();
+        		  
+        		  
+        		   
+        		                    
  
 	}
 	

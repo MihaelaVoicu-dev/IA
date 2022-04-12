@@ -1,6 +1,7 @@
 package mihaela.ia;
 
 public class Locality implements Observer {
+	//TODO modificare private set si get
 	public int state;
 
 	static  String separator="  ";
@@ -13,7 +14,6 @@ public class Locality implements Observer {
 		name= new String();
 		longitude= new Longitude();
 		latitude=new Latitude();
-
 	}
 	
 	public Locality(String n, Longitude longit, Latitude lat) {

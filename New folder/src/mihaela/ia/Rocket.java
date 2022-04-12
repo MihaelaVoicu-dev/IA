@@ -1,5 +1,23 @@
 package mihaela.ia;
 
-public interface Rocket {
-void explosion();
+public class  Rocket {
+	
+	 private String name;
+	  private RocketBody rocketBody;
+	  private Reactor reactor;
+	  
+  public Rocket(String name, RocketBody rocketBody, Reactor reactor) {
+		super();
+		this.name = name;
+		this.rocketBody = rocketBody;
+		this.reactor = reactor;
+	}
+
+    Rocket(Builder builder) {
+		this.name=builder.getName();
+		this.reactor=builder.getReactor();
+		this.rocketBody=builder.getRocketBody();
+	}
+
+   
 }
