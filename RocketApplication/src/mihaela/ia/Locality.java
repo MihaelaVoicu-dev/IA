@@ -101,9 +101,6 @@ public class Locality implements Observer {
 		this.state = state;
 	}
 
-	public void setLongitude(int parseInt, int parseInt2, LatitudeOrientation valueOf) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }
 
