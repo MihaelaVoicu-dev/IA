@@ -57,7 +57,7 @@ public class Localities implements Subject {
 
 		try {
 			// creating a constructor of file class and parsing an XML file
-			File file = new File("D:\\Eclipse workspace\\IA\\IA2\\New folder\\src\\mihaela\\ia\\ListOfLocalities.xml");
+			File file = new File("D:\\Eclipse workspace\\IA\\IA2\\RocketApplication\\src\\mihaela\\ia\\ListOfLocalities.xml");
 
 			// an instance of factory that gives a document builder
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
