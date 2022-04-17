@@ -22,14 +22,14 @@ public class Locality implements Observer {
 		this.longitude=longit;
 	};
 	
-	public Locality(String n, int g,int m,boolean v,int g1,int m1,boolean v1) {
+	public Locality(String n, int g,int m,LongitudeOrientation o,int g1,int m1,LatitudeOrientation o1) {
 		this.name=n;
 		this.longitude.setDegrees(g);
 		this.longitude.setMinutes(m);
-		this.longitude.setVest(v);
+		this.longitude.setOrientation(o);;
 		this.latitude.setDegrees(g1);
 		this.latitude.setMinutes(m1);
-		this.latitude.isNord=v1;
+		this.latitude.setOrientation(o1);;
 	};
 	
 	public String getName() {
@@ -41,10 +41,10 @@ public class Locality implements Observer {
 	public Longitude getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(int g,int min,boolean v) {
+	public void setLongitude(int g,int min,LongitudeOrientation longitudeOrientation ) {
 		this.longitude.setDegrees(g);
 		this.longitude.setMinutes(min);
-		this.longitude.setVest(v);
+		this.longitude.setOrientation(longitudeOrientation);
 	}
 	public Latitude getLatitude() {
 		return latitude;
@@ -56,15 +56,15 @@ public class Locality implements Observer {
 	}
 	
 	public String toString() {
-	if((longitude.isVest())&&(latitude.isNord))
+	if((longitude.getOrientation().WEST!=null)&&(latitude.getOrientation().NORTH!=null))
 	{
 		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "West"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"North";
 	}
-	else if((longitude.isVest()==false)&&(latitude.isNord==false)) {
-		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "East"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"South";
+	else if((longitude.getOrientation().EASTH!=null)&&(latitude.getOrientation().SOUTH!=null)) {
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "Easth"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"South";
 	}
-	else if((longitude.isVest()==false)&&(latitude.isNord==true)) {
-		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "East"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"North";
+	else if((longitude.getOrientation().EASTH!=null)&&(latitude.getOrientation().NORTH!=null)) {
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "Easth"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"North";
 	}
 	else 
 		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "West"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"South";
@@ -99,6 +99,11 @@ public class Locality implements Observer {
 
 	public void setState(int state) {
 		this.state = state;
+	}
+
+	public void setLongitude(int parseInt, int parseInt2, LatitudeOrientation valueOf) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

@@ -75,13 +75,15 @@ public class Localities implements Subject {
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 					Locality currentLocality = new Locality();
 	                 LatitudeOrientation o=null;
+	                 LongitudeOrientation o1=null;
 					Element eElement = (Element) node;
 					// eElement=null;
 					currentLocality.setName(eElement.getElementsByTagName("name").item(0).getTextContent());
 					currentLocality.setLongitude(
 							Integer.parseInt(eElement.getElementsByTagName("lgrades").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("lminutes").item(0).getTextContent()),
-							Boolean.parseBoolean(eElement.getElementsByTagName("lisVest").item(0).getTextContent()));
+							o1.valueOf(eElement.getElementsByTagName("orientationLong").item(0).getTextContent())
+							);
 					currentLocality.setLatitude(
 							Integer.parseInt(eElement.getElementsByTagName("grades").item(0).getTextContent()),
 							Integer.parseInt(eElement.getElementsByTagName("minutes").item(0).getTextContent()),
@@ -175,5 +177,22 @@ public class Localities implements Subject {
 			o.update();
 		}
 	}
-
+	public void initializeLocalitiesAndRegisterObservers() {
+		Localities l = Localities.getInstance();
+		LatitudeOrientation n = null;
+		Latitude lat1 = new Latitude(46, 47, n.NORTH);
+		Latitude lat2 = new Latitude(44, 14, n.SOUTH);
+		Latitude lat3 = new Latitude(23, 54, n.NORTH);
+		LongitudeOrientation m=null;
+		Longitude long1 = new Longitude(23, 38, m.EASTH);
+		Longitude long2 = new Longitude(28, 38, m.EASTH);
+		Longitude long3 = new Longitude(42, 53, m.WEST);
+		Locality l1 = new Locality("Cluj", long1, lat1);
+		Locality l2 = new Locality("Constanta", long2, lat2);
+		Locality l3 = new Locality("Craiova", long3, lat3);
+        l.register(l1);
+        l.register(l2);
+        l.register(l3);
+        l.readXml();
+	}
 }

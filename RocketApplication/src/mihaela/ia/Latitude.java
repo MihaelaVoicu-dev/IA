@@ -4,9 +4,7 @@ public class Latitude {
 
 	private float degrees;
 	private float minutes;
-
-	@Deprecated
-	boolean isNord;
+	private LatitudeOrientation orientation;
 
 	public LatitudeOrientation getOrientation() {
 		return orientation;
@@ -15,8 +13,6 @@ public class Latitude {
 	public void setOrientation(LatitudeOrientation orientation) {
 		this.orientation = orientation;
 	}
-
-	private LatitudeOrientation orientation;
 
 	public float getMinutes() {
 		return minutes;

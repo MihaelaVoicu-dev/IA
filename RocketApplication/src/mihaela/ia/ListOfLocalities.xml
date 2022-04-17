@@ -3,7 +3,7 @@
 		<name>Timisoara1</name>>
 		    <lgrades>45</lgrades>
          	<lminutes>34</lminutes >
-         	<lisVest>true</lisVest>
+         	<orientationLong>WEST</orientationLong>
             <grades>56</grades>>
             <minutes>34</minutes> />
             <orientation>NORTH</orientation>/>
@@ -14,8 +14,8 @@
 		<name>Craiova2</name>
             <lgrades>54</lgrades>
          	<lminutes>34</lminutes >
-            <lisVest>true</lisVest>
-            <grades>66</grades>
+            <orientationLong>EASTH</orientationLong>
+           <grades>66</grades>
             <minutes>34</minutes> />
            <orientation>SOUTH</orientation>/>         
 	</Locality>
@@ -23,7 +23,7 @@
 		<name>Timisoara3</name>>
 		    <lgrades>45</lgrades>
          	<lminutes>34</lminutes >
-         	<lisVest>true</lisVest>
+         	<orientationLong>EASTH</orientationLong>
             <grades>56</grades>>
             <minutes>34</minutes> />
             <orientation>SOUTH</orientation>/>

@@ -10,21 +10,29 @@ public class Longitude {
 	public Longitude() {
 		setDegrees(0);
 		setMinutes(0);
-		setVest(true);
 	}
 
-	public Longitude(int g, int m, boolean v) {
+	public LongitudeOrientation getOrientation() {
+		return orientation;
+	}
+
+	public Longitude(int g, int m, LongitudeOrientation o) {
 		this.setDegrees(g);
 		this.setMinutes(m);
-		this.setVest(v);
+		this.orientation=o;
+	}
+
+	public void setOrientation(LongitudeOrientation orientation) {
+		this.orientation = orientation;
 	}
 
 	public String toString() {
-		if (this.isVest() == true) {
+		if (this.orientation.WEST!=null) {
 			return "grade: " + this.getDegrees() + " minutes: " + this.getMinutes() + " West";
-		} else {
+		} else if(this.orientation.EASTH!=null){
 			return "grade: " + this.getDegrees() + " minutes: " + this.getMinutes() + " East";
 		}
+		return null;
 	}
 
 	public float getDegrees() {
@@ -43,11 +51,5 @@ public class Longitude {
 		this.minutes = minutes;
 	}
 
-	public boolean isVest() {
-		return isVest;
-	}
-
-	public void setVest(boolean isVest) {
-		this.isVest = isVest;
-	}
+	
 }
