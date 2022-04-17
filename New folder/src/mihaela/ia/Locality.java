@@ -1,8 +1,8 @@
 package mihaela.ia;
 
 public class Locality implements Observer {
-	//TODO modificare private set si get
-	public int state;
+	
+	private int state;
 
 	static  String separator="  ";
 	
@@ -24,11 +24,11 @@ public class Locality implements Observer {
 	
 	public Locality(String n, int g,int m,boolean v,int g1,int m1,boolean v1) {
 		this.name=n;
-		this.longitude.degrees=g;
-		this.longitude.minutes=m;
-		this.longitude.isVest=v;
-		this.latitude.degrees=g1;
-		this.latitude.minutes=m1;
+		this.longitude.setDegrees(g);
+		this.longitude.setMinutes(m);
+		this.longitude.setVest(v);
+		this.latitude.setDegrees(g1);
+		this.latitude.setMinutes(m1);
 		this.latitude.isNord=v1;
 	};
 	
@@ -42,59 +42,63 @@ public class Locality implements Observer {
 		return longitude;
 	}
 	public void setLongitude(int g,int min,boolean v) {
-		this.longitude.degrees = g;
-		this.longitude.minutes = min;
-		this.longitude.isVest = v;
+		this.longitude.setDegrees(g);
+		this.longitude.setMinutes(min);
+		this.longitude.setVest(v);
 	}
 	public Latitude getLatitude() {
 		return latitude;
 	}
-	public void setLatitude(int g,int min,boolean v) {
-		this.latitude.degrees=g;
-		this.latitude.minutes=min;
-		this.latitude.isNord=v;
+	public void setLatitude(int g,int min,LatitudeOrientation o) {
+		this.latitude.setDegrees(g);
+		this.latitude.setMinutes(min);
+		this.latitude.setOrientation(o);
 	}
 	
 	public String toString() {
-	if((longitude.isVest)&&(latitude.isNord))
+	if((longitude.isVest())&&(latitude.isNord))
 	{
-		return name+separator+longitude.degrees+separator+longitude.minutes+ "West"+separator+latitude.degrees+separator+latitude.minutes+"North";
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "West"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"North";
 	}
-	else if((longitude.isVest==false)&&(latitude.isNord==false)) {
-		return name+separator+longitude.degrees+separator+longitude.minutes+ "East"+separator+latitude.degrees+separator+latitude.minutes+"South";
+	else if((longitude.isVest()==false)&&(latitude.isNord==false)) {
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "East"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"South";
 	}
-	else if((longitude.isVest==false)&&(latitude.isNord==true)) {
-		return name+separator+longitude.degrees+separator+longitude.minutes+ "East"+separator+latitude.degrees+separator+latitude.minutes+"North";
+	else if((longitude.isVest()==false)&&(latitude.isNord==true)) {
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "East"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"North";
 	}
 	else 
-		return name+separator+longitude.degrees+separator+longitude.minutes+ "West"+separator+latitude.degrees+separator+latitude.minutes+"South";
+		return name+separator+longitude.getDegrees()+separator+longitude.getMinutes()+ "West"+separator+latitude.getDegrees()+separator+latitude.getMinutes()+"South";
 	
 	}
-	public float LatitudeToDegrees() {
+	
+	public float computeLatitudeToDegrees() {
 		float degreesL;
-		degreesL= (float) (this.latitude.minutes/60+this.latitude.degrees);
+		degreesL= (float) (this.latitude.getMinutes()/60+this.latitude.getDegrees());
 		return degreesL;
 	}
-	public float LongitudeToDegrees() {
+	public float computeLongitudeToDegrees() {
 		float degreesl;
-		degreesl= (float) (this.longitude.minutes/60+this.longitude.degrees);
+		degreesl= (float) (this.longitude.getMinutes()/60+this.longitude.getDegrees());
 		return degreesl;
 	}
 	@Override
 	public void update() 
 	{
 	   
-		if(this.state==1) {
-		System.out.println("Rocket has been launched!!!");
+		if(this.getState()==1) {
+		System.out.println(this.getName()+ " has been launched the rocket!!");
 		}
 		else {
 		
-	     System.out.println("The rocket hasn t been launched!");}
+	     System.out.println(this.getName()+"  hasn t been launched the rocket!");}
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 }
 
-
-	
-
-
-	

@@ -6,7 +6,7 @@
          	<lisVest>true</lisVest>
             <grades>56</grades>>
             <minutes>34</minutes> />
-            <isNord>false</isNord>/>
+            <orientation>NORTH</orientation>/>
          
          
 	</Locality>
@@ -17,8 +17,7 @@
             <lisVest>true</lisVest>
             <grades>66</grades>
             <minutes>34</minutes> />
-           <isNord>false</isNord>/>
-         
+           <orientation>SOUTH</orientation>/>         
 	</Locality>
 <Locality >
 		<name>Timisoara3</name>>
@@ -27,9 +26,8 @@
          	<lisVest>true</lisVest>
             <grades>56</grades>>
             <minutes>34</minutes> />
-            <isNord>false</isNord>/>
-         
-         
+            <orientation>SOUTH</orientation>/>
+
 	</Locality>
 
 </ListOfLocalities>

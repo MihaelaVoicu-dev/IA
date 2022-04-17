@@ -1,36 +1,58 @@
 package mihaela.ia;
 
+public class Latitude {
 
-public class Latitude   {
+	private float degrees;
+	private float minutes;
 
-	
-	float degrees;
-    float minutes;
+	@Deprecated
+	boolean isNord;
 
-    @Deprecated
-    boolean isNord;
-    
-    private LatitudeOrientation orientation;
-    
- public Latitude(int g,int m, boolean v) {
-	 this.degrees=g;
-	 this.minutes=m;
-	 this.isNord=v;
-}
-public Latitude() {
-	degrees=0;
-	minutes=0;
-	isNord=true;
-}
-
-@Override
-public String toString() 
-{ if(this.isNord==true)
-{ return "grade: " + this.degrees+ " minutes: "+this.minutes + " North"; 
+	public LatitudeOrientation getOrientation() {
+		return orientation;
 	}
-else {
-	 return "grade: " + this.degrees+ " minutes: "+this.minutes + " South"; 
+
+	public void setOrientation(LatitudeOrientation orientation) {
+		this.orientation = orientation;
+	}
+
+	private LatitudeOrientation orientation;
+
+	public float getMinutes() {
+		return minutes;
+	}
+
+	public void setMinutes(float minutes) {
+		this.minutes = minutes;
+	}
+
+	public float getDegrees() {
+		return degrees;
+	}
+
+	public void setDegrees(float degrees) {
+		this.degrees = degrees;
+	}
+
+	public Latitude(int g, int m, LatitudeOrientation o) {
+		this.setDegrees(g);
+		this.setMinutes(m);
+		this.orientation=o;
+	}
+
+	public Latitude() {
+		setDegrees(0);
+		setMinutes(0);
+	  
+	}
+
+	@Override
+	public String toString() {
+		if (this.orientation.NORTH != null) {
+			return "grade: " + this.getDegrees() + " minutes: " + this.getMinutes() + " North";
+		} else if(this.orientation.SOUTH!=null){
+			return "grade: " + this.getDegrees() + " minutes: " + this.getMinutes() + " South";
+		}
+		return null;
 	}
 }
-}
-     
