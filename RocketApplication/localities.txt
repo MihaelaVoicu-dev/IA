@@ -1,3 +1,0 @@
-Arad 42  53 true 23  54 false 
-Timisoara  42  53 true 23  54 true
-Craiova  42  53 false  23  56 false

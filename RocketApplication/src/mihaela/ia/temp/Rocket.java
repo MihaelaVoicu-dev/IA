@@ -1,4 +1,4 @@
-package mihaela.ia;
+package mihaela.ia.temp;
 
 public class Rocket {
 
@@ -18,7 +18,7 @@ public class Rocket {
 		this.reactor = reactor;
 	}
 
-	Rocket(Builder builder) {
+	public Rocket(RocketBuilder builder) {
 		this.name = builder.getName();
 		this.reactor = builder.getReactor();
 		this.rocketBody = builder.getRocketBody();

@@ -1,4 +1,6 @@
-package mihaela.ia;
+package mihaela.ia.temp;
+
+import mihaela.ia.Locality;
 
 public class Session {
 

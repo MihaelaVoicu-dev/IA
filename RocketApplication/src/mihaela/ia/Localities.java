@@ -26,6 +26,11 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import rocket.math.Latitude;
+import rocket.math.LatitudeOrientation;
+import rocket.math.Longitude;
+import rocket.math.LongitudeOrientation;
+
 public class Localities implements Subject {
 
 	private static final Logger logger = Logger.getLogger(Localities.class.getName());

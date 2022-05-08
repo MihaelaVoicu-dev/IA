@@ -1,5 +1,10 @@
 package mihaela.ia;
 
+import rocket.math.Latitude;
+import rocket.math.LatitudeOrientation;
+import rocket.math.Longitude;
+import rocket.math.LongitudeOrientation;
+
 public class Locality implements Observer {
 	
 	private int state;
@@ -77,9 +82,8 @@ public class Locality implements Observer {
 		return degreesL;
 	}
 	public float computeLongitudeToDegrees() {
-		float degreesl;
-		degreesl= (float) (this.longitude.getMinutes()/60+this.longitude.getDegrees());
-		return degreesl;
+		return (float) (this.longitude.getMinutes()/60+this.longitude.getDegrees());
+		
 	}
 	@Override
 	public void update() 
@@ -101,9 +105,6 @@ public class Locality implements Observer {
 		this.state = state;
 	}
 
-<<<<<<< HEAD
-=======
-	
->>>>>>> main
+
 }
 

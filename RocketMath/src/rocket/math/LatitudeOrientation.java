@@ -1,4 +1,4 @@
-package mihaela.ia;
+package rocket.math;
 
 public enum LatitudeOrientation {
 
