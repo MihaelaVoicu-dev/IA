@@ -10,7 +10,7 @@ public class LocalityManagement {
 		 
 		RocketMathTemp temp= new RocketMathTemp();
 	
-		Localities l = Localities.getInstance();
+		CustomLocalities l = CustomLocalities.getInstance();
 		l.initializeLocalitiesAndRegisterObservers();
 	    l.showTheLocalities();
         EventAlert eventAlert=new EventAlert();

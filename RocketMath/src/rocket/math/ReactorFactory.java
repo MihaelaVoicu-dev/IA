@@ -1,4 +1,4 @@
-package mihaela.ia.temp;
+package rocket.math;
 
 public class ReactorFactory {
 

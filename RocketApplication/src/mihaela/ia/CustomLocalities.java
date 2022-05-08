@@ -28,33 +28,34 @@ import org.w3c.dom.NodeList;
 
 import rocket.math.Latitude;
 import rocket.math.LatitudeOrientation;
+import rocket.math.Locality;
 import rocket.math.Longitude;
 import rocket.math.LongitudeOrientation;
 
-public class Localities implements Subject {
+public class CustomLocalities extends Locality implements Subject {
 
-	private static final Logger logger = Logger.getLogger(Localities.class.getName());
+	private static final Logger logger = Logger.getLogger(CustomLocalities.class.getName());
 
-	private static Localities instance;
+	private static CustomLocalities instance;
 
-	private List<Locality> observerList;
+	private List<CustomLocality> observerList;
 
-	private Localities() {
-		this.observerList = new ArrayList<Locality>();
+	private CustomLocalities() {
+		this.observerList = new ArrayList<CustomLocality>();
 	}
 	
-	public static Localities getInstance() {
+	public static CustomLocalities getInstance() {
 		if (instance == null) {
-			instance = new Localities();
+			instance = new CustomLocalities();
 		}
 		return instance;
 	}
 
-	public List<Locality> getLocalities() {
+	public List<CustomLocality> getLocalities() {
 		return observerList;
 	}
 
-	public void add(Locality l) {
+	public void add(CustomLocality l) {
 		observerList.add(l);
 	}
 
@@ -78,7 +79,7 @@ public class Localities implements Subject {
 				Node node = nodeList.item(itr);
 
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					Locality currentLocality = new Locality();
+					CustomLocality currentLocality = new CustomLocality();
 	                 LatitudeOrientation o=null;
 	                 LongitudeOrientation o1=null;
 					Element eElement = (Element) node;
@@ -167,7 +168,7 @@ public class Localities implements Subject {
 
 	@Override
 	public void register(Observer o) {
-		observerList.add((Locality) o);
+		observerList.add((CustomLocality) o);
 	}
 
 	@Override
@@ -177,13 +178,13 @@ public class Localities implements Subject {
 
 	@Override
 	public void notifyAllObservers() {
-		for (Iterator<Locality> it = observerList.iterator(); it.hasNext();) {
+		for (Iterator<CustomLocality> it = observerList.iterator(); it.hasNext();) {
 			Observer o = it.next();
 			o.update();
 		}
 	}
 	public void initializeLocalitiesAndRegisterObservers() {
-		Localities l = Localities.getInstance();
+		CustomLocalities l = CustomLocalities.getInstance();
 		LatitudeOrientation n = null;
 		Latitude lat1 = new Latitude(46, 47, n.NORTH);
 		Latitude lat2 = new Latitude(44, 14, n.SOUTH);
@@ -192,9 +193,9 @@ public class Localities implements Subject {
 		Longitude long1 = new Longitude(23, 38, m.EASTH);
 		Longitude long2 = new Longitude(28, 38, m.EASTH);
 		Longitude long3 = new Longitude(42, 53, m.WEST);
-		Locality l1 = new Locality("Cluj", long1, lat1);
-		Locality l2 = new Locality("Constanta", long2, lat2);
-		Locality l3 = new Locality("Craiova", long3, lat3);
+		CustomLocality l1 = new CustomLocality("Cluj", long1, lat1);
+		CustomLocality l2 = new CustomLocality("Constanta", long2, lat2);
+		CustomLocality l3 = new CustomLocality("Craiova", long3, lat3);
         l.register(l1);
         l.register(l2);
         l.register(l3);

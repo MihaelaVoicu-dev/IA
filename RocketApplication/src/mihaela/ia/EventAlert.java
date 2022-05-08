@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class EventAlert {
 
-	public void AlertEveryone(Localities observerList) {
-		for (Locality l : observerList.getLocalities()) {
+	public void AlertEveryone(CustomLocalities observerList) {
+		for (CustomLocality l : observerList.getLocalities()) {
 			Random rand = new Random();
 			// double randomValue = rand.nextDouble();
 			// int value =(int) (randomValue*1000);

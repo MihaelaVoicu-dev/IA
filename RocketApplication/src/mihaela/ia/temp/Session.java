@@ -1,6 +1,7 @@
 package mihaela.ia.temp;
 
-import mihaela.ia.Locality;
+import mihaela.ia.CustomLocality;
+import rocket.math.Rocket;
 
 public class Session {
 
@@ -8,7 +9,7 @@ public class Session {
 	private double launchingSpeed;
 	private Rocket rocket;
 
-	public double computeDistanceOfTwoLocalities(Locality A, Locality B) {
+	public double computeDistanceOfTwoLocalities(CustomLocality A, CustomLocality B) {
 		final float R = 6371;// Earth`s radius in km
 		final float latitudeA = (float) (A.computeLatitudeToDegrees() * Math.PI / 180);// transform to radians
 		final float latitudeB = (float) (B.computeLatitudeToDegrees() * Math.PI / 180);
@@ -35,7 +36,7 @@ public class Session {
 	 * https://www.movable-type.co.uk/scripts/latlong.html
 	 */
 
-	public double computeAngleBetweenTwoLocalities(Locality a, Locality b) {
+	public double computeAngleBetweenTwoLocalities(CustomLocality a, CustomLocality b) {
 		
 		float differenceLongitude = (b.computeLongitudeToDegrees() - a.computeLongitudeToDegrees());
 	    double y = Math.sin(differenceLongitude) * Math.cos(b.computeLatitudeToDegrees());
@@ -49,7 +50,7 @@ public class Session {
 	
     public void minimumSpeedOfLaunching() {}
     
-	public void optimAngle(Locality a, Locality b) {
+	public void optimAngle(CustomLocality a, CustomLocality b) {
 		
 	}
 

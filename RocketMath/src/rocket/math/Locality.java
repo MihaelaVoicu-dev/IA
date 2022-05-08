@@ -1,12 +1,6 @@
-package mihaela.ia;
+package rocket.math;
 
-import rocket.math.Latitude;
-import rocket.math.LatitudeOrientation;
-import rocket.math.Longitude;
-import rocket.math.LongitudeOrientation;
-
-public class Locality implements Observer {
-	
+public class Locality {
 	private int state;
 
 	static  String separator="  ";
@@ -85,18 +79,6 @@ public class Locality implements Observer {
 		return (float) (this.longitude.getMinutes()/60+this.longitude.getDegrees());
 		
 	}
-	@Override
-	public void update() 
-	{
-	   
-		if(this.getState()==1) {
-		System.out.println(this.getName()+ " has been launched the rocket!!");
-		}
-		else {
-		
-	     System.out.println(this.getName()+"  hasn t been launched the rocket!");}
-	}
-
 	public int getState() {
 		return state;
 	}
@@ -105,6 +87,4 @@ public class Locality implements Observer {
 		this.state = state;
 	}
 
-
 }
-
