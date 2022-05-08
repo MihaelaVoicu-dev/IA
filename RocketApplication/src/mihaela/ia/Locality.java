@@ -101,5 +101,9 @@ public class Locality implements Observer {
 		this.state = state;
 	}
 
+<<<<<<< HEAD
+=======
+	
+>>>>>>> main
 }
 
