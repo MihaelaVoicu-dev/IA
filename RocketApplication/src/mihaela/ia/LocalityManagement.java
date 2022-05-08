@@ -5,10 +5,14 @@ import java.util.logging.Logger;
 
 import javax.xml.transform.TransformerException;
 
+import rocket.math.RocketMathTemp;
+
 public class LocalityManagement {
 
 	public static void main(String[] args) throws TransformerException  {
 		 
+		RocketMathTemp temp= new RocketMathTemp();
+	
 		Localities l = Localities.getInstance();
 		l.initializeLocalitiesAndRegisterObservers();
 	    l.showTheLocalities();
