@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class EventAlert {
 
-	public void AlertEveryone(CustomLocalities observerList) {
+	public void AlertEveryone(Localities observerList) {
 		for (CustomLocality l : observerList.getLocalities()) {
 			Random rand = new Random();
 			// double randomValue = rand.nextDouble();

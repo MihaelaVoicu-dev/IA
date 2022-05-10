@@ -9,7 +9,7 @@ public class Session {
 	private double launchingSpeed;
 	private Rocket rocket;
 
-	public double computeDistanceOfTwoLocalities(CustomLocality A, CustomLocality B) {
+	public static double computeDistanceOfTwoLocalities(CustomLocality A, CustomLocality B) {
 		final float R = 6371;// Earth`s radius in km
 		final float latitudeA = (float) (A.computeLatitudeToDegrees() * Math.PI / 180);// transform to radians
 		final float latitudeB = (float) (B.computeLatitudeToDegrees() * Math.PI / 180);

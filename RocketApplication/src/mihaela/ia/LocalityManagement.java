@@ -2,23 +2,24 @@ package mihaela.ia;
 
 import javax.xml.transform.TransformerException;
 
-import rocket.math.RocketMathTemp;
+import mihaela.ia.temp.Session;
 
 public class LocalityManagement {
 
 	public static void main(String[] args) throws TransformerException  {
 		 
-		RocketMathTemp temp= new RocketMathTemp();
 	
-		CustomLocalities l = CustomLocalities.getInstance();
-		l.initializeLocalitiesAndRegisterObservers();
+	
+		Localities l = Localities.getInstance();
+		l.initializeLocalities();
+		
 	    l.showTheLocalities();
         EventAlert eventAlert=new EventAlert();
         eventAlert.AlertEveryone(l);
        
-	/*	Session st1 = new Session();
+		Session st1 = new Session();
 		System.out.println("Distance between two localities: " + st1.computeDistanceOfTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));// acordat cu google e 685 vs rezultat 688//greseli
-		System.out.println("Angle " + st1.computeAngleBetweenTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));//118 google
+	/*	System.out.println("Angle " + st1.computeAngleBetweenTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));//118 google
 		 ReactorFactory reactorFactory= new ReactorFactory();
 		Reactor thisReactor= reactorFactory.getReactor("Nuclear");
         RocketBody rb = new RocketBody(2, 5);

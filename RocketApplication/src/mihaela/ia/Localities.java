@@ -32,21 +32,21 @@ import rocket.math.Locality;
 import rocket.math.Longitude;
 import rocket.math.LongitudeOrientation;
 
-public class CustomLocalities extends Locality implements Subject {
+public class Localities extends Locality implements Subject {
 
-	private static final Logger logger = Logger.getLogger(CustomLocalities.class.getName());
+	private static final Logger logger = Logger.getLogger(Localities.class.getName());
 
-	private static CustomLocalities instance;
+	private static Localities instance;
 
 	private List<CustomLocality> observerList;
 
-	private CustomLocalities() {
+	private Localities() {
 		this.observerList = new ArrayList<CustomLocality>();
 	}
 	
-	public static CustomLocalities getInstance() {
+	public static Localities getInstance() {
 		if (instance == null) {
-			instance = new CustomLocalities();
+			instance = new Localities();
 		}
 		return instance;
 	}
@@ -183,8 +183,8 @@ public class CustomLocalities extends Locality implements Subject {
 			o.update();
 		}
 	}
-	public void initializeLocalitiesAndRegisterObservers() {
-		CustomLocalities l = CustomLocalities.getInstance();
+	public void initializeLocalities() {
+		Localities l = Localities.getInstance();
 		LatitudeOrientation n = null;
 		Latitude lat1 = new Latitude(46, 47, n.NORTH);
 		Latitude lat2 = new Latitude(44, 14, n.SOUTH);
