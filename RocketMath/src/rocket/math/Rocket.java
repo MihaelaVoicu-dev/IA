@@ -23,5 +23,13 @@ public class Rocket {
 		this.reactor = builder.getReactor();
 		this.rocketBody = builder.getRocketBody();
 	}
+
+	public float getMassOfRocket() {
+		return massOfRocket;
+	}
+
+	public void setMassOfRocket(float massOfRocket) {
+		this.massOfRocket = massOfRocket;
+	}
  
 }

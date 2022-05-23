@@ -184,21 +184,7 @@ public class Localities extends Locality implements Subject {
 		}
 	}
 	public void initializeLocalities() {
-		Localities l = Localities.getInstance();
-		LatitudeOrientation n = null;
-		Latitude lat1 = new Latitude(46, 47, n.NORTH);
-		Latitude lat2 = new Latitude(44, 14, n.SOUTH);
-		Latitude lat3 = new Latitude(23, 54, n.NORTH);
-		LongitudeOrientation m=null;
-		Longitude long1 = new Longitude(23, 38, m.EASTH);
-		Longitude long2 = new Longitude(28, 38, m.EASTH);
-		Longitude long3 = new Longitude(42, 53, m.WEST);
-		CustomLocality l1 = new CustomLocality("Cluj", long1, lat1);
-		CustomLocality l2 = new CustomLocality("Constanta", long2, lat2);
-		CustomLocality l3 = new CustomLocality("Craiova", long3, lat3);
-        l.register(l1);
-        l.register(l2);
-        l.register(l3);
-        l.readXml();
+	
+     this.readXml();
 	}
 }

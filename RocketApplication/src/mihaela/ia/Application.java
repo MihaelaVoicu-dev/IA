@@ -4,7 +4,7 @@ import javax.xml.transform.TransformerException;
 
 import mihaela.ia.temp.Session;
 
-public class LocalityManagement {
+public class Application {
 
 	public static void main(String[] args) throws TransformerException  {
 		 
@@ -23,7 +23,6 @@ public class LocalityManagement {
 		 ReactorFactory reactorFactory= new ReactorFactory();
 		Reactor thisReactor= reactorFactory.getReactor("Nuclear");
         RocketBody rb = new RocketBody(2, 5);
-
         Rocket rocket= new Builder()
         		  .setName("racheta1")
         		  .setReactor( thisReactor)
@@ -34,4 +33,3 @@ public class LocalityManagement {
 	}
 	
 	}
-
