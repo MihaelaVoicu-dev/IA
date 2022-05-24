@@ -187,4 +187,16 @@ public class Localities extends Locality implements Subject {
 	
      this.readXml();
 	}
+	public String toString() 
+	{
+		String result = " ";
+		for (int i = 0; i < observerList.size(); i++) {
+			result+= observerList.get(i).toString()+"\r\n";
+		}
+		
+		return result;
+		
+	}
+
+
 }

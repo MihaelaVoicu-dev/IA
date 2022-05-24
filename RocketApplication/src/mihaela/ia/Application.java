@@ -17,9 +17,12 @@ public class Application {
         EventAlert eventAlert=new EventAlert();
         eventAlert.AlertEveryone(l);
        
-		Session st1 = new Session();
-		System.out.println("Distance between two localities: " + st1.computeDistanceOfTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));// acordat cu google e 685 vs rezultat 688//greseli
-	/*	System.out.println("Angle " + st1.computeAngleBetweenTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));//118 google
+		//Session st1 = new Session();
+	//	System.out.println("Distance between two localities: " + st1.computeDistanceOfTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));// acordat cu google e 685 vs rezultat 688//greseli
+	//System.out.println(st1.computeAngleBetweenTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));
+	//System.out.println(st1.computeTime(l.getLocalities().get(1), l.getLocalities().get(2)));
+		
+		/*	System.out.println("Angle " + st1.computeAngleBetweenTwoLocalities(l.getLocalities().get(1), l.getLocalities().get(2)));//118 google
 		 ReactorFactory reactorFactory= new ReactorFactory();
 		Reactor thisReactor= reactorFactory.getReactor("Nuclear");
         RocketBody rb = new RocketBody(2, 5);
